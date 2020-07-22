@@ -32,5 +32,5 @@ List.getInitialProps = async (ctx) => {
   }
   const res = await fetch('http://127.0.0.1:5000/vehicles')
   const json = await res.json()
-  return { props: { data : json } }
+  return { data : json }
 }
