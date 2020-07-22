@@ -1,9 +1,13 @@
-import Head from 'next/head'
 
-export default function Home() {
+const Home = () => {
   return (
     <div>
       hello
     </div>
   )
+}
+export default Home
+
+Home.getInitialProps = () => {
+
 }
