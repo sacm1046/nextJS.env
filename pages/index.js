@@ -6,10 +6,11 @@ const Home = ({data}) => {
     </pre>
   )
 }
-export default Home
 
-Home.getInitialProps = async () => {
+Home.getInitialProps = async (ctx) => {
   const res = await fetch('http://127.0.0.1:5000/vehicles')
-  const data= await res.json()
-  return { data: data }
+  const json= await res.json()
+  return { data: json }
 }
+
+export default Home
