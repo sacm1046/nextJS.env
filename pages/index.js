@@ -24,9 +24,8 @@ const Home = ({ data }) => {
     </pre>
   )
 }
-export async function getServerSideProps(ctx) {
-
-  !ctx.req && { ownerList: [] }
+export async function getInitialProps(ctx) {
+  !ctx.req && { data: [] }
   const res = await fetch('http://127.0.0.1:5000/vehicles')
   const data = await res.json()
   return { props: { data } }
