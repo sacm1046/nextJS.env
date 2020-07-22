@@ -1,33 +1,13 @@
-import { useState, useEffect } from 'react'
+import Link from 'next/link'
 
-const Home = ({ data }) => {
-
-  const [dat, setDat] = useState(data)
-
-  useEffect(() => {
-      const loadData = async () => {
-        const res = await fetch('http://127.0.0.1:5000/vehicles')
-        const json = await res.json()
-        setDat(json)
-      }
-      if(data.length == 0) {
-          loadData()
-      }
-      if (!data) {
-          <div>Loading...</div>
-      }
-  }, [])
+const Home = () => {
 
   return (
-    <pre>
-      {JSON.stringify(dat, null, 4)}
-    </pre>
+    <>
+    <Link href="list"><a>Go list</a></Link>
+    <h1>home</h1>
+    </>
   )
 }
-export async function getInitialProps(ctx) {
-  !ctx.req && { data: [] }
-  const res = await fetch('http://127.0.0.1:5000/vehicles')
-  const data = await res.json()
-  return { props: { data } }
-}
 export default Home
+
