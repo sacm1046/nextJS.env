@@ -11,7 +11,7 @@ const List = ({ data }) => {
         setDat(json)
       }
       if (!data) {
-        <div>Loading...</div>
+        return <div>Loading...</div>
     }
       if (data.length === 0) {
       loadData()
