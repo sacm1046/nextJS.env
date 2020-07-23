@@ -21,7 +21,7 @@ const List = ({ data }) => {
 
   return (
     <pre>
-      {JSON.stringify(dat)}
+      {JSON.stringify(dat, null, 4)}
     </pre>
   )
 }
