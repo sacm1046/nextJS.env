@@ -10,17 +10,18 @@ const List = ({ data }) => {
         const json = await res.json()
         setDat(json)
       }
+      if (!data) {
+        <div>Loading...</div>
+    }
       if (data.length === 0) {
       loadData()
       }
-      if (!data) {
-          <div>Loading...</div>
-      }
+      
   }, [])
 
   return (
     <pre>
-      {JSON.stringify(dat, null, 4)}
+      {JSON.stringify(dat)}
     </pre>
   )
 }
