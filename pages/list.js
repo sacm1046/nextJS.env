@@ -2,12 +2,14 @@ import { useState, useEffect } from 'react'
 
 const List = ({ data }) => {
 
-  const [dat, setDat] = useState(data)
-
   return (
-    <pre>
-      {JSON.stringify(dat, null, 4)}
-    </pre>
+    <ul>
+      {
+        data.map(({ id, details }) => (
+          <li key={id}>{details}</li>
+        ))
+      }
+    </ul>
   )
 }
 export default List
