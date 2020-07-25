@@ -6,7 +6,7 @@ const List = ({ products }) => {
 
   useEffect(() => {
     const loadData = async () => {
-      const res = await fetch(`${process.env.PATH}/products`)
+      const res = await fetch(`${process.env.PATHSERVER}/products`)
       const data = await res.json()
       setProd(data)
     }
