@@ -5,18 +5,17 @@ const List = ({ data }) => {
   const [dat, setDat] = useState(data)
 
   useEffect(() => {
-      const loadData = async () => {
-        const res = await fetch('http://127.0.0.1:5000/vehicles')
-        const json = await res.json()
-        setDat(json)
-      }
-      if (!data) {
-        return <div>Loading...</div>
+    const loadData = async () => {
+      const res = await fetch('http://127.0.0.1:5000/vehicles')
+      const json = await res.json()
+      setDat(json)
     }
-      if (data.length === 0) {
+    if (data.length === 0) {
       loadData()
-      }
-      
+    }
+    if (!data) {
+      return <div>Loading...</div>
+    }
   }, [])
 
   return (
@@ -28,10 +27,8 @@ const List = ({ data }) => {
 export default List
 
 List.getInitialProps = async (ctx) => {
-  if(!ctx.req){ 
-    return { data: [] }
-  }
+  !ctx.req && { data: [] }
   const res = await fetch('http://127.0.0.1:5000/vehicles')
   const json = await res.json()
-  return { data : json }
+  return { data: json }
 }
