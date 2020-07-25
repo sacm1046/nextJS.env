@@ -6,7 +6,7 @@ const List = ({ products }) => {
 
   useEffect(() => {
     const loadData = async () => {
-      const res = await fetch('https://aact.pythonanywhere.com/products')
+      const res = await fetch(`${process.env.PATH}/products`)
       const data = await res.json()
       setProd(data)
     }
