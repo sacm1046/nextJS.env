@@ -1,21 +1,13 @@
 import { useState, useEffect } from 'react'
 
-const List = ({ data }) => {
+const List = ({products}) => {
+  console.log(products)
+  return <pre>{JSON.stringify(products,null,3)}</pre>
+}
 
-  return (
-    <ul>
-      {
-        data.map(({ id, details }) => (
-          <li key={id}>{details}</li>
-        ))
-      }
-    </ul>
-  )
+List.getInitialProps = async (ctx) => {
+  const res = await fetch('https://aact.pythonanywhere.com/products')
+  const data = await res.json()
+  return { products: data}
 }
 export default List
-
-List.getInitialProps = async () => {
-  const res = await fetch('http://127.0.0.1:5000/vehicles')
-  const json = await res.json()
-  return { data: json }
-}
